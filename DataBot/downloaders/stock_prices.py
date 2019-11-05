@@ -1,3 +1,4 @@
+from DataBot.config import CONFIG
 from abc import abstractmethod
 from pathlib import Path
 
@@ -10,8 +11,8 @@ import os
 
 class StockPrice:
 
-    DATA_PATH = "./data/prices"
-    DATE_FORMAT = "%Y-%m-%d"
+    DATA_PATH = CONFIG["downloaders"]["stocks"]["path"]
+    DATE_FORMAT = CONFIG["all"]["date_format"]
 
     @abstractmethod
     def download(self, tickers):
@@ -28,7 +29,7 @@ class StockPrice:
 
 
 class AlphaVantage:
-    API_KEY = "AAAAAAAAAAAAAAAA"
+    API_KEY = CONFIG["downloaders"]["stocks"]["alphavantage_key"]
     HISTORICAL = 'TIME_SERIES_DAILY'
     URL = 'https://www.alphavantage.co/query?function=%s&symbol=%s&outputsize=full&apikey=' + API_KEY
 
@@ -38,23 +39,20 @@ class AlphaVantage:
 
         # Download New Data.
         for ticker in tickers:
-            cache = os.listdir(StockPrice.DATA_PATH)
-            if ticker + ".json" not in cache:
+            flag = True
+            while flag:
+                r = requests.get(AlphaVantage.URL % (AlphaVantage.HISTORICAL, ticker))
+                try:
+                    obj = json.loads(r.text)
+                    val = obj["Time Series (Daily)"]
+                    flag = False
+                except KeyError:
+                    # Sleep for a minute and try again.
+                    print("Sleeping for 90")
+                    time.sleep(90)
 
-                flag = True
-                while flag:
-                    r = requests.get(AlphaVantage.URL % (AlphaVantage.HISTORICAL, ticker))
-                    try:
-                        obj = json.loads(r.text)
-                        val = obj["Time Series (Daily)"]
-                        flag = False
-                    except KeyError:
-                        # Sleep for a minute and try again.
-                        print("Sleeping for 90")
-                        time.sleep(90)
-
-                with open(os.path.join(StockPrice.DATA_PATH, ticker + '.json'), "w") as file:
-                    file.write(r.text)
+            with open(os.path.join(StockPrice.DATA_PATH, ticker + '.json'), "w") as file:
+                file.write(r.text)
 
 
 AlphaVantage.download(["AAPL", "GOOG", "AMZN", "F", "HMC", "GE"])

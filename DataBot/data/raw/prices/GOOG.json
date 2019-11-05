@@ -2,24 +2,24 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "GOOG",
-        "3. Last Refreshed": "2019-11-05 14:48:28",
+        "3. Last Refreshed": "2019-11-05",
         "4. Output Size": "Full size",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
         "2019-11-05": {
             "1. open": "1292.8900",
-            "2. high": "1298.9300",
+            "2. high": "1298.7800",
             "3. low": "1291.2289",
-            "4. close": "1294.9150",
-            "5. volume": "820027"
+            "4. close": "1292.0300",
+            "5. volume": "1095694"
         },
         "2019-11-04": {
             "1. open": "1276.4500",
             "2. high": "1294.1300",
             "3. low": "1276.3550",
             "4. close": "1291.3700",
-            "5. volume": "1346413"
+            "5. volume": "1487200"
         },
         "2019-11-01": {
             "1. open": "1265.0000",
