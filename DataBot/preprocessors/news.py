@@ -63,5 +63,5 @@ class News:
 
             loop.close()
 
-News.process()
+# News.process()
 
