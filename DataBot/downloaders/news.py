@@ -46,6 +46,7 @@ class NewsAPIDotOrg:
         loop = tqdm(total=len(list(tickers)))
 
         # Download News Data.
+        # TODO: Make downloader better. AAPL works perfectly, F does not return any articles on Ford.
         for ticker in tickers:
             loop.set_description('Downloading stock news for {}'.format(ticker))
 
