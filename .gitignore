@@ -1,1 +1,4 @@
-config.py
+/DataBot/config.py
+/DataBot/venv/
+/DataBot/data/
+/DataBot/.DS_Store

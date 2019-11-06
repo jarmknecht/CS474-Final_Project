@@ -1,14 +1,12 @@
 from DataBot.config import CONFIG
-from bs4 import BeautifulSoup
+
 from pathlib import Path
 from tqdm import tqdm
 
-import textwrap
-import requests
+import newspaper
 import shutil
 import json
 import os
-import re
 
 
 class News:
@@ -30,7 +28,7 @@ class News:
             shutil.rmtree(News.DATA_OUT_PATH)
             os.mkdir(News.DATA_OUT_PATH)
 
-    # TODO: Needs work!!!!
+    # TODO: Figure out bug with only downloading 20 articles.
     @staticmethod
     def process():
         News.init()
@@ -41,31 +39,27 @@ class News:
 
             os.mkdir(os.path.join(News.DATA_OUT_PATH, file.replace(".json", "")))
             loop = tqdm(total=int(json_data['totalResults']))
-            for article in json_data['articles']:
-                url = article['url']
-                r = requests.get(url)
+            for article_summary in json_data['articles']:
+                url = article_summary['url']
+                title = article_summary['title']
+                loop.set_description(title[:30])
+
+                try:
+                    article = newspaper.Article(url)
+                    article.download()
+                    article.parse()
+                except newspaper.article.ArticleException:
+                    loop.set_description('News article could not be downloaded.')
+                    loop.update(1)
+                    continue
+
+                text = article.text     # May be interesting article.keywords, article.summary
+
+                with open(os.path.join(News.DATA_OUT_PATH, file.replace(".json", ""), title.replace("/", "") + ".txt"), "w") as f:
+                    f.write(title + '\n')
+                    f.write(text)
+
                 loop.update(1)
-
-                if r.status_code == 200:
-
-                    title = article['title']
-                    author = article['author']
-                    paragraphs = [paragraph.replace("<p>", "").replace("</p>", "") for paragraph in
-                                  re.findall("<p>.*</p>", r.text)]
-
-                    paragraphs = [paragraph for paragraph in paragraphs if len(paragraph) > 25]
-                    with open(os.path.join(News.DATA_OUT_PATH, file.replace(".json", ""), title.replace("/", "") + ".txt"), "w") as f:
-
-                        if title is not None:
-                            f.write(title)
-                            f.write("\n")
-
-                        if author is not None:
-                            f.write(author)
-                            f.write("\n")
-
-                        for paragraph in paragraphs:
-                            f.write("\n".join(textwrap.wrap(paragraph, 75)))
 
             loop.close()
 

@@ -2,23 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42d2de31-aa61-4ca0-acba-575bd3d5a818" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/austinkolander.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/DataBot/data/raw/news/AAPL.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/DataBot/data/raw/news/F.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/DataBot/data/raw/news/FB.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/DataBot/data/raw/news/GOOG.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/DataBot/data/raw/prices/AAPL.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/DataBot/data/raw/prices/AMZN.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/DataBot/data/raw/prices/F.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/DataBot/data/raw/prices/GE.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/DataBot/data/raw/prices/GOOG.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/DataBot/data/raw/prices/HMC.json" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/DataBot/preprocessors/stock_prices.py" afterPath="$PROJECT_DIR$/DataBot/preprocessors/stock.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/CS474-Final_Project.iml" afterPath="$PROJECT_DIR$/.idea/CS474-Final_Project.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataBot/config.py" afterPath="$PROJECT_DIR$/DataBot/config.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataBot/downloaders/news.py" afterPath="$PROJECT_DIR$/DataBot/downloaders/news.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataBot/downloaders/stock_prices.py" afterPath="$PROJECT_DIR$/DataBot/downloaders/stock_prices.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataBot/main.py" afterPath="$PROJECT_DIR$/DataBot/main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataBot/preprocessors/news.py" afterPath="$PROJECT_DIR$/DataBot/preprocessors/news.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Final_Project.ipynb" afterPath="$PROJECT_DIR$/Final_Project.ipynb" />
     </list>
@@ -30,34 +17,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="stock.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DataBot/preprocessors/stock.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="44" column="12" lean-forward="false" selection-start-line="44" selection-start-column="12" selection-end-line="45" selection-end-column="48" />
-              <folding>
-                <element signature="e#0#33#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="codecs.py" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/local/Cellar/python3/3.6.2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/codecs.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="310" column="0" lean-forward="false" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="news.py" pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="news.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DataBot/preprocessors/news.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="63" column="28" lean-forward="false" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
+            <state relative-caret-position="-272">
+              <caret line="30" column="12" lean-forward="false" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -65,8 +30,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GE’s stock rockets after another earnings beat and ‘more optimistic’ outlook.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/GE/GE’s stock rockets after another earnings beat and ‘more optimistic’ outlook.txt">
+      <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DataBot/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -75,35 +40,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stock_prices.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DataBot/downloaders/stock_prices.py">
+      <file leaf-file-name="stock.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DataBot/preprocessors/stock.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="news.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DataBot/downloaders/news.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="45" column="8" lean-forward="false" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="45" />
+            <state relative-caret-position="-332">
+              <caret line="44" column="12" lean-forward="false" selection-start-line="44" selection-start-column="12" selection-end-line="45" selection-end-column="48" />
               <folding>
-                <element signature="e#0#40#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DataBot/config.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="28" column="40" lean-forward="false" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
-              <folding>
-                <element signature="e#0#24#0" expanded="true" />
+                <element signature="e#0#33#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -119,8 +62,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GE.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/prices/GE.csv">
+      <file leaf-file-name="GOOG.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/prices/GOOG.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4567">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GE boosts outlook despite 737 Max, tariff headwinds - Fox Business.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/GE/GE boosts outlook despite 737 Max, tariff headwinds - Fox Business.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -129,10 +82,42 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SNAP.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/prices/SNAP.csv">
+      <file leaf-file-name="GE Posts Loss on Restructuring Charges but Raises Cash-Flow Goals - The Wall Street Journal.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/GE/GE Posts Loss on Restructuring Charges but Raises Cash-Flow Goals - The Wall Street Journal.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-874">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stock_prices.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DataBot/downloaders/stock_prices.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="179">
+              <caret line="54" column="20" lean-forward="false" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="67" />
+              <folding>
+                <element signature="e#0#33#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Here's Why General Electric Stock Is Soaring.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/GE/Here's Why General Electric Stock Is Soaring.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-520">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -147,6 +132,13 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>urlparse</find>
+      <find>self.input</find>
+      <find>self.url</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -166,7 +158,9 @@
         <option value="$PROJECT_DIR$/DataBot/main.py" />
         <option value="$PROJECT_DIR$/DataBot/config.py" />
         <option value="$PROJECT_DIR$/DataBot/downloaders/news.py" />
+        <option value="$PROJECT_DIR$/DataBot/preprocessors/readability.py" />
         <option value="$PROJECT_DIR$/DataBot/preprocessors/news.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -214,30 +208,6 @@
               <item name="CS474-Final_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="CS474-Final_Project" type="462c0819:PsiDirectoryNode" />
               <item name="DataBot" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="preprocessed" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CS474-Final_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS474-Final_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="DataBot" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="preprocessed" type="462c0819:PsiDirectoryNode" />
-              <item name="news" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CS474-Final_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS474-Final_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="DataBot" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="preprocessed" type="462c0819:PsiDirectoryNode" />
-              <item name="news" type="462c0819:PsiDirectoryNode" />
-              <item name="GE" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CS474-Final_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS474-Final_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="DataBot" type="462c0819:PsiDirectoryNode" />
               <item name="downloaders" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -258,6 +228,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/DataBot" />
       <recent name="$PROJECT_DIR$/DataBot/preprocessors" />
       <recent name="$PROJECT_DIR$/DataBot/downloaders" />
     </key>
@@ -281,7 +252,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="/usr/local/Cellar/python3/3.6.2/Frameworks/Python.framework/Versions/3.6/bin/python3.6" />
+      <option name="SDK_HOME" value="$PROJECT_DIR$/DataBot/venv/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DataBot/" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -346,26 +317,26 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="721" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="721" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2536349" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.399361" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -384,11 +355,6 @@
           <line>39</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/DataBot/preprocessors/news.py</url>
-          <line>25</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -402,70 +368,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/DataBot/data/prices_abc/AAPL.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataBot/data/prices/AAPL.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14951">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataBot/data/news/AAPL.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="18879" lean-forward="false" selection-start-line="0" selection-start-column="18879" selection-end-line="0" selection-end-column="18879" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataBot/data/news/F.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1871">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataBot/data/news/GOOG.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataBot/data/news/FB.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Final_Project.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -477,7 +379,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="43" lean-forward="false" selection-start-line="1" selection-start-column="43" selection-end-line="1" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -485,7 +386,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -493,7 +393,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1916">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -501,31 +400,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/prices/AAPL.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/prices/GOOG.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/prices/AAPL.json" />
     <entry file="file://$PROJECT_DIR$/DataBot/data/raw/news/AAPL.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -539,27 +421,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/prices/AAPL.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/prices/F.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/prices/GE.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -567,7 +432,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-874">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -584,40 +448,247 @@
         <state relative-caret-position="245">
           <caret line="28" column="40" lean-forward="false" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
           <folding>
-            <element signature="e#0#24#0" expanded="true" />
+            <element signature="e#0#24#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataBot/downloaders/stock_prices.py">
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/GE/GE’s stock rockets after another earnings beat and ‘more optimistic’ outlook.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="21" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/GE/GE Jumps as New Boost to Cash-Flow Outlook Bolsters Turnaround.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/GE/GE posts loss; raises cash forecast, beats on adjusted EPS.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/GE/General Electric Company (GE) Q3 2019 Earnings Call Transcript.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-13555">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/GE/Why Shares of General Electric Are Surging Today.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/GE/Why Shares of General Electric Are Up Today.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/GE/Samsung SmartThings will soon support more devices, 'Rules API' for offline automation also planned.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/FB/Facebook Inc (FB) Q3 2019 Earnings Call Transcript.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4523">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/FB/Facebook stock jumps after revenue, earnings beat expectations in Q3 - Yahoo Finance.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/FB/Stock market news: November 1, 2019 - Yahoo Finance.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/F/Canon Reveals the RF 70-200mm f2.8L and the RF 85mm f1.2L DS Lenses.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/F/Jorge Masvidal drank liquor, ate pizza, and called Conor McGregor 'a f------ midget' in his post-fight press conference after dominating Nate Diaz.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/F/She’s Putting Her Mark on the Kennedy Center.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/FB/Facebook's head of news defends the company's decision to include sites like Breitbart in its curated News section: 'I will always stand by their right to express their views' (FB).txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/FB/Facebook is quietly laying the foundation for its own HQ2-style expansion by leasing enough office space in Seattle for 20,000 employees (FB).txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/FB/Facebook reports 3rd-quarter earnings on Wednesday. Here's what 5 analysts are thinking about ahead of the results. (FB).txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/FB/This is what FB wants to saywith its new logo.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/FB/Interview with Facebook CMO Antonio Lucio on how the company mulled changing its name, challenges of adding FB branding to messaging apps like WhatsApp, more (Kurt WagnerBloomberg).txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DataBot/downloaders/news.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
+        <state relative-caret-position="525">
           <caret line="45" column="8" lean-forward="false" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="45" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#40#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataBot/preprocessors/stock.py">
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/AAPL/Both AirPods Pro and Powerbeats Pro are the perfect wireless earbuds for iPhone owners — here's how to decide between them (AAPL).txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="44" column="12" lean-forward="false" selection-start-line="44" selection-start-column="12" selection-end-line="45" selection-end-column="48" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/AAPL/LIVE: Here comes Apple's earnings (AAPL).txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/AAPL/Tim Cook says Apple's new AirPods Pro could be a complement to your current AirPods, not a replacement (AAPL).txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/prices/AAPL.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/SNAP/Brexit Party's Farage set to fight every seat in poll battle against PM Johnson.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/SNAP/Broncos placing QB Joe Flacco, LB Corey Nelson on injured reserve - DenverBroncos.com.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="115" lean-forward="false" selection-start-line="14" selection-start-column="115" selection-end-line="14" selection-end-column="115" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/preprocessors/readability.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1290">
+          <caret line="86" column="49" lean-forward="false" selection-start-line="86" selection-start-column="49" selection-end-line="86" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/GE/Android 10 has begun rolling out on schedule to OnePlus 66T.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/GE/GE Cash Flow Picture, and Its Outlook, Is Improving - U.S. News &amp; World Report.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/GE/GE posts earnings beat, raises cash flow forecast.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/GE/Here's Why General Electric Stock Is Soaring.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-520">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/downloaders/stock_prices.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="54" column="20" lean-forward="false" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="67" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/GE/GE’s stock rockets after another earnings beat and ‘more optimistic’ outlook.txt">
+    <entry file="file://$PROJECT_DIR$/DataBot/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -627,11 +698,61 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DataBot/preprocessors/news.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="63" column="28" lean-forward="false" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
+        <state relative-caret-position="-272">
+          <caret line="30" column="12" lean-forward="false" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/preprocessors/stock.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-332">
+          <caret line="44" column="12" lean-forward="false" selection-start-line="44" selection-start-column="12" selection-end-line="45" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/prices/F.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/prices/GOOG.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4567">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/GE/GE boosts outlook despite 737 Max, tariff headwinds - Fox Business.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBot/data/preprocessed/news/GE/GE Posts Loss on Restructuring Charges but Raises Cash-Flow Goals - The Wall Street Journal.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
