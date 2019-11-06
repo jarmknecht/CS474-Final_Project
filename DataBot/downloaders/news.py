@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 from DataBot.config import CONFIG
 from abc import abstractmethod
 from pathlib import Path
+from tqdm import tqdm
 
 import requests
 import shutil
@@ -42,9 +43,12 @@ class NewsAPIDotOrg:
     @staticmethod
     def download(tickers):
         News.init()
+        loop = tqdm(total=len(list(tickers)))
 
         # Download News Data.
         for ticker in tickers:
+            loop.set_description('Downloading stock news for {}'.format(ticker))
+
             flag = True
             while flag:
                 r = requests.get(NewsAPIDotOrg.URL % (ticker, datetime.now() - timedelta(days=7)))
@@ -54,16 +58,14 @@ class NewsAPIDotOrg:
                     if obj["status"] == "ok":
                         val = obj["articles"]
                     else:
-                        print("Error Code: " + obj["code"])
-                        raise KeyError("Sleep!")
+                        raise KeyError(obj["code"])
+                    loop.update(1)
                     flag = False
                 except KeyError:
-                    # Sleep for an hour and try again.
-                    print("Sleeping for an hour.")
+                    loop.set_description('Sleeping for an hour. Too many requests')
                     time.sleep(3600)
 
             with open(os.path.join(News.DATA_PATH, ticker + '.json'), "w") as file:
                 file.write(r.text)
 
-
-NewsAPIDotOrg.download(["AAPL", "FB", "F", "GOOG"])
+        loop.close()

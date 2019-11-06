@@ -1,6 +1,7 @@
 from DataBot.config import CONFIG
 from abc import abstractmethod
 from pathlib import Path
+from tqdm import tqdm
 
 import requests
 import shutil
@@ -36,23 +37,25 @@ class AlphaVantage:
     @staticmethod
     def download(tickers):
         StockPrice.init()
+        loop = tqdm(total=len(list(tickers)))
 
         # Download New Data.
         for ticker in tickers:
+            loop.set_description('Downloading stock prices for {}'.format(ticker))
             flag = True
             while flag:
                 r = requests.get(AlphaVantage.URL % (AlphaVantage.HISTORICAL, ticker))
                 try:
                     obj = json.loads(r.text)
                     val = obj["Time Series (Daily)"]
+                    loop.update(1)
                     flag = False
                 except KeyError:
                     # Sleep for a minute and try again.
-                    print("Sleeping for 90")
+                    loop.set_description('Sleeping for 90 seconds')
                     time.sleep(90)
 
             with open(os.path.join(StockPrice.DATA_PATH, ticker + '.json'), "w") as file:
                 file.write(r.text)
 
-
-AlphaVantage.download(["AAPL", "GOOG", "AMZN", "F", "HMC", "GE"])
+        loop.close()
