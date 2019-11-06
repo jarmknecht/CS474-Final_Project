@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="42d2de31-aa61-4ca0-acba-575bd3d5a818" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/CS474-Final_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CS474-Final_Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="42d2de31-aa61-4ca0-acba-575bd3d5a818" name="Default" comment="Updated requirements.txt">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataBot/preprocessors/news.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataBot/preprocessors/news.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataBot/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/DataBot/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataBot/.gitignore.swp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataBot/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataBot/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,13 +20,6 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>urlparse</find>
-      <find>self.input</find>
-      <find>self.url</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -38,6 +30,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/DataBot/data" />
       <recent name="$PROJECT_DIR$/DataBot" />
       <recent name="$PROJECT_DIR$/DataBot/preprocessors" />
       <recent name="$PROJECT_DIR$/DataBot/downloaders" />
@@ -136,6 +129,14 @@
       <option name="presentableId" value="Default" />
       <updated>1572991670262</updated>
     </task>
+    <task id="LOCAL-00001" summary="Updated requirements.txt">
+      <created>1573069746302</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1573069746302</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -149,17 +150,21 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Updated requirements.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated requirements.txt" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DataBot/main.py</url>
-          <line>39</line>
+          <line>43</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DataBot/main.py</url>
-          <line>10</line>
+          <line>11</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

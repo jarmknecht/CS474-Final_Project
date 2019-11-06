@@ -1,4 +1,5 @@
 /DataBot/config.py
 /DataBot/venv/
-/DataBot/data/
+/DataBot/data/preprocessed
+/DataBot/data/raw
 /DataBot/.DS_Store

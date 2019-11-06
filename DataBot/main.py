@@ -6,11 +6,15 @@ from threading import Thread
 from DataBot.preprocessors.news import News
 from DataBot.preprocessors.stock import Stock
 
+import json
 
 def main():
     init_datapaths()
 
-    # TODO: Create list of which stocks to target.
+    with open('./data/fortune500/fortune500.json', 'r') as json_file:
+        ticker_data = json.load(json_file)
+
+    print(ticker_data['Apple'])
 
     # Start
     tickers = ["AAPL", "GOOG", "FB", "F", "GE", "SNAP"]
