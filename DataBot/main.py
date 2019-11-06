@@ -3,6 +3,7 @@ from DataBot.downloaders.news import NewsAPIDotOrg
 from DataBot.config import init_datapaths
 from threading import Thread
 
+from DataBot.preprocessors.news import News
 from DataBot.preprocessors.stock import Stock
 
 
@@ -27,9 +28,10 @@ def stock_price_workflow(tickers):
     AlphaVantage.download(tickers=tickers)
     Stock.process(window=15)    # Shorter windows for short term, longer windows for long term.
 
+
 def stock_news_workflow(tickers):
     NewsAPIDotOrg.download(tickers=tickers)
-    # Stock price Preprocess.
+    News.process()
 
 
 def stock_social_workflow(tickers):
