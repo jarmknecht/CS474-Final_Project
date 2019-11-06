@@ -38,7 +38,7 @@ class NewsAPIDotOrg:
 
     API_KEY = CONFIG["downloaders"]["news"]["news_key"]
     HISTORICAL = 'TIME_SERIES_DAILY'
-    URL = 'https://newsapi.org/v2/everything?q=%s&from=%s&apiKey=' + API_KEY
+    URL = 'https://newsapi.org/v2/everything?q=%s&from=%s&pageSize=100&language=en&apiKey=' + API_KEY
 
     @staticmethod
     def download(tickers):
@@ -49,6 +49,8 @@ class NewsAPIDotOrg:
         # TODO: Make downloader better. AAPL works perfectly, F does not return any articles on Ford.
         for ticker in tickers:
             loop.set_description('Downloading stock news for {}'.format(ticker))
+
+
 
             flag = True
             while flag:

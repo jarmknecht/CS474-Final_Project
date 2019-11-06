@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="42d2de31-aa61-4ca0-acba-575bd3d5a818" name="Default" comment="Updated requirements.txt">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="42d2de31-aa61-4ca0-acba-575bd3d5a818" name="Default" comment="Changed fortune500 to call name and get symbol back">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataBot/.gitignore.swp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataBot/downloaders/news.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataBot/downloaders/news.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataBot/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataBot/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataBot/preprocessors/news.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataBot/preprocessors/news.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -136,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573069746302</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Changed fortune500 to call name and get symbol back">
+      <created>1573073766717</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1573073766717</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -152,7 +159,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Updated requirements.txt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated requirements.txt" />
+    <MESSAGE value="Changed fortune500 to call name and get symbol back" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed fortune500 to call name and get symbol back" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

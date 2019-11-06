@@ -29,7 +29,7 @@ def main():
 
 
 def stock_price_workflow(tickers):
-    AlphaVantage.download(tickers=tickers)
+    #AlphaVantage.download(tickers=tickers)
     Stock.process(window=15)    # Shorter windows for short term, longer windows for long term.
 
 

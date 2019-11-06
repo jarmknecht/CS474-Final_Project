@@ -42,6 +42,8 @@ class News:
             for article_summary in json_data['articles']:
                 url = article_summary['url']
                 title = article_summary['title']
+                if len(title) > 30:
+                    title = title[:30]
                 loop.set_description(title[:30])
 
                 try:
