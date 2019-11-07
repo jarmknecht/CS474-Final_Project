@@ -29,7 +29,7 @@ class StockPrice:
             os.mkdir(StockPrice.DATA_PATH)
 
 
-class AlphaVantage:
+class AlphaVantage(StockPrice):
     API_KEY = CONFIG["downloaders"]["stocks"]["alphavantage_key"]
     HISTORICAL = 'TIME_SERIES_DAILY'
     URL = 'https://www.alphavantage.co/query?function=%s&symbol=%s&outputsize=full&apikey=' + API_KEY

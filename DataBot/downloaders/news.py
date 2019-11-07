@@ -11,13 +11,22 @@ import time
 import os
 
 
+# https://stocknewsapi.com
+
 class News:
 
     DATA_PATH = CONFIG["downloaders"]["news"]["path"]
     DATE_FORMAT = CONFIG["all"]["date_format"]
 
+    def __init__(self):
+        News.init()
+
     @abstractmethod
     def download(self, tickers):
+        raise NotImplementedError("The method not implemented")
+
+    @abstractmethod
+    def download_training(self, tickers):
         raise NotImplementedError("The method not implemented")
 
     @staticmethod
@@ -30,7 +39,7 @@ class News:
             os.mkdir(News.DATA_PATH)
 
 
-class NewsAPIDotOrg:
+class NewsAPIDotOrg(News):
 
     """
         Courtesy of https://newsapi.org/
@@ -40,6 +49,9 @@ class NewsAPIDotOrg:
     HISTORICAL = 'TIME_SERIES_DAILY'
     URL = 'https://newsapi.org/v2/everything?q=%s&from=%s&pageSize=100&language=en&apiKey=' + API_KEY
 
+    """
+        Method for real time stock test articles.
+    """
     @staticmethod
     def download(tickers):
         News.init()
@@ -83,3 +95,77 @@ class NewsAPIDotOrg:
                 file.write(r.text)
 
         loop.close()
+
+    """
+        Get news articles for training. (Slow)
+    """
+    @staticmethod
+    def download_training(tickers):
+        News.init()
+        loop = tqdm(total=len(list(tickers)))
+        news_articles = []
+
+        nyt_url = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=%s&api-key=' + CONFIG['downloaders']['news']['nyt_key']
+
+        # NYT News Data.
+        # TODO: Make downloader better. AAPL works perfectly, F does not return any articles on Ford.
+        # for ticker in tickers:
+        #     loop.set_description('Downloading NYT stock news for {}'.format(ticker))
+        #
+        #     flag = True
+        #     while flag:
+        #         r = requests.get(nyt_url % ticker)
+        #
+        #         try:
+        #             obj = json.loads(r.text)
+        #             if obj["status"].lower() == "ok":
+        #                 docs = obj["response"]["docs"]
+        #
+        #                 for doc in docs:
+        #                     news_articles.append({"title": doc['lead_paragraph'].split('. ')[0],
+        #                                           "publishedAt": doc['pub_date'], "url": doc['web_url']})
+        #             else:
+        #                 raise KeyError()
+        #             loop.update(1)
+        #             flag = False
+        #         except KeyError:
+        #             loop.set_description('Sleeping for an hour. Too many requests on nyt')
+        #             time.sleep(3600)
+
+        loop.close()
+        loop = tqdm(total=len(list(tickers)))
+
+        intrino_url = 'https://api-v2.intrinio.com/companies/%s/news?page_size=1000&api_key=' + CONFIG['downloaders']['news']['intrino_key']
+        for ticker in tickers:
+            loop.set_description('Downloading Intrino stock news for {}'.format(ticker))
+
+            flag = True
+            while flag:
+                r = requests.get(intrino_url % ticker)
+                if r.status_code == 429 and "1 Minute Call" in json.loads(r.text)['error']:
+                    loop.set_description('Sleeping for an minute. Too many requests on intrino')
+                    time.sleep(90)
+                    continue
+
+                try:
+
+                    obj = json.loads(r.text)
+                    docs = obj["news"]
+
+                    for doc in docs:
+                        news_articles.append({"title": doc['title'],
+                                              "publishedAt": doc['publication_date'], "url": doc['url']})
+                    else:
+                        raise KeyError()
+                    loop.update(1)
+                    flag = False
+                except KeyError:
+                    loop.set_description('Sleeping for an hour. Too many requests on intrino')
+                    time.sleep(3600)
+
+        json_data = {"status": "ok", "totalResults": len(docs), "articles": news_articles}
+        with open(os.path.join(News.DATA_PATH, ticker + '.json'), "w") as file:
+            file.write(json.dumps(json_data))
+
+
+NewsAPIDotOrg.download_training(["AAPL", "GE", "SNAP", "AMZN"])

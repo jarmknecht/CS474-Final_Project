@@ -3,6 +3,7 @@ from DataBot.config import CONFIG
 from pathlib import Path
 from tqdm import tqdm
 
+import datetime
 import newspaper
 import shutil
 import json
@@ -28,7 +29,6 @@ class News:
             shutil.rmtree(News.DATA_OUT_PATH)
             os.mkdir(News.DATA_OUT_PATH)
 
-    # TODO: Figure out bug with only downloading 20 articles.
     @staticmethod
     def process():
         News.init()
@@ -57,7 +57,15 @@ class News:
 
                 text = article.text     # May be interesting article.keywords, article.summary
 
-                with open(os.path.join(News.DATA_OUT_PATH, file.replace(".json", ""), title.replace("/", "") + ".txt"), "w") as f:
+                date = article_summary['publishedAt'].split("T")[0]
+                date = datetime.datetime.strptime(date, '%Y-%m-%d')   # 2019-10-30T19:15:10Z
+                date = date.date()
+
+                path = Path(os.path.join(News.DATA_OUT_PATH, file.replace(".json", ""), str(date)))
+                if not path.is_dir():
+                    os.mkdir(path)
+
+                with open(os.path.join(path, title.replace("/", "") + ".txt"), "w") as f:
                     f.write(title + '\n')
                     f.write(text)
 
@@ -65,5 +73,5 @@ class News:
 
             loop.close()
 
-# News.process()
+News.process()
 
