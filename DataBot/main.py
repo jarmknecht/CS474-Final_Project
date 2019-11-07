@@ -11,10 +11,9 @@ import json
 def main():
     init_datapaths()
 
-    with open('./data/fortune500/fortune500.json', 'r') as json_file:
+    # Use ticker data to load all fortune 500 this is a dictionary with key as name of company and value as symbol
+    with open('./data/fortune500/fortune500n_s.json', 'r') as json_file:
         ticker_data = json.load(json_file)
-
-    print(ticker_data['Apple'])
 
     # Start
     tickers = ["AAPL", "GOOG", "FB", "F", "GE", "SNAP"]

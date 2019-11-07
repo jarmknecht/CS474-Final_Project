@@ -43,6 +43,11 @@ class NewsAPIDotOrg:
     @staticmethod
     def download(tickers):
         News.init()
+        dict_set = set(line.strip() for line in open('./data/dictionary/dictionary.txt'))
+        # Use ticker data to load all fortune 500 this is a dictionary with key as symbol and value as name of company
+        with open('./data/fortune500/fortune500s_n.json', 'r') as json_file:
+            data_ticker = json.load(json_file)
+
         loop = tqdm(total=len(list(tickers)))
 
         # Download News Data.
@@ -50,8 +55,14 @@ class NewsAPIDotOrg:
         for ticker in tickers:
             loop.set_description('Downloading stock news for {}'.format(ticker))
 
-
-
+            ticker = ticker.lower()
+            if len(ticker) > 3 and (ticker not in dict_set):
+                ticker = ticker.upper()
+            else:
+                ticker = ticker.upper()
+                ticker = data_ticker[ticker]
+                ticker = ticker.upper()
+            print(ticker)
             flag = True
             while flag:
                 r = requests.get(NewsAPIDotOrg.URL % (ticker, datetime.now() - timedelta(days=7)))
