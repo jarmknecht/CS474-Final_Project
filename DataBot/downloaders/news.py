@@ -25,10 +25,6 @@ class News:
     def download(self, tickers):
         raise NotImplementedError("The method not implemented")
 
-    @abstractmethod
-    def download_training(self, tickers):
-        raise NotImplementedError("The method not implemented")
-
     @staticmethod
     def init():
         var = Path(News.DATA_PATH)
@@ -47,7 +43,7 @@ class NewsAPIDotOrg(News):
 
     API_KEY = CONFIG["downloaders"]["news"]["news_key"]
     HISTORICAL = 'TIME_SERIES_DAILY'
-    URL = 'https://newsapi.org/v2/everything?q=%s&from=%s&pageSize=100&language=en&apiKey=' + API_KEY
+    URL = 'https://newsapi.org/v2/everything?q="%s"&from=%s&pageSize=100&language=en&apiKey=' + API_KEY
 
     """
         Method for real time stock test articles.
@@ -74,7 +70,7 @@ class NewsAPIDotOrg(News):
                 ticker = ticker.upper()
                 ticker = data_ticker[ticker]
                 ticker = ticker.upper()
-            print(ticker)
+            # print(ticker)
             flag = True
             while flag:
                 r = requests.get(NewsAPIDotOrg.URL % (ticker, datetime.now() - timedelta(days=7)))
@@ -105,7 +101,7 @@ class HistoricNews(News):
 
     NY_API_KEY = CONFIG["downloaders"]["news"]["nyt_key"]
     HISTORICAL = 'TIME_SERIES_DAILY'
-    URL = 'https://newsapi.org/v2/everything?q=%s&from=%s&pageSize=100&language=en&apiKey=' + API_KEY
+    URL = 'https://newsapi.org/v2/everything?q=%s&from=%s&pageSize=100&language=en&apiKey=' + NY_API_KEY
 
     """
         Get news articles for training. (Slow)
@@ -180,4 +176,4 @@ class HistoricNews(News):
         with open(os.path.join(News.DATA_PATH, ticker + '.json'), "w") as file:
             file.write(json.dumps(json_data))
 
-NewsAPIDotOrg.download_training(["AAPL", "GE", "SNAP", "AMZN"])
+#NewsAPIDotOrg.download(["AAPL", "GE", "SNAP", "AMZN", "F"])
