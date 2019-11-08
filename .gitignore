@@ -1,5 +1,8 @@
 /DataBot/config.py
-/DataBot/venv/
-/DataBot/data/preprocessed
-/DataBot/data/raw
+/DataBot/venv/*
+/DataBot/data/preprocessed/*
+/DataBot/data/raw/*
 /DataBot/.DS_Store
+/DataBot/__pycache__/*
+/DataBot/.gitidea/*
+/DataBot/data/all-the-news/*.csv

@@ -3,7 +3,11 @@ from DataBot.config import CONFIG
 from abc import abstractmethod
 from pathlib import Path
 from tqdm import tqdm
+from DataBot.util import query_ticker_term
 
+import pandas as pd
+
+import threading
 import requests
 import shutil
 import json
@@ -14,7 +18,6 @@ import os
 # https://stocknewsapi.com
 
 class News:
-
     DATA_PATH = CONFIG["downloaders"]["news"]["path"]
     DATE_FORMAT = CONFIG["all"]["date_format"]
 
@@ -36,44 +39,30 @@ class News:
 
 
 class NewsAPIDotOrg(News):
-
     """
         Courtesy of https://newsapi.org/
     """
 
     API_KEY = CONFIG["downloaders"]["news"]["news_key"]
     HISTORICAL = 'TIME_SERIES_DAILY'
-    URL = 'https://newsapi.org/v2/everything?q="%s"&from=%s&pageSize=100&language=en&apiKey=' + API_KEY
+    URL = 'https://newsapi.org/v2/everything?q=%s&from=%s&pageSize=100&language=en&apiKey=' + API_KEY
 
     """
         Method for real time stock test articles.
     """
+
     @staticmethod
     def download(tickers):
-        News.init()
-        dict_set = set(line.strip() for line in open('./data/dictionary/dictionary.txt'))
-        # Use ticker data to load all fortune 500 this is a dictionary with key as symbol and value as name of company
-        with open('./data/fortune500/fortune500s_n.json', 'r') as json_file:
-            data_ticker = json.load(json_file)
 
         loop = tqdm(total=len(list(tickers)))
 
         # Download News Data.
-        # TODO: Make downloader better. AAPL works perfectly, F does not return any articles on Ford.
         for ticker in tickers:
             loop.set_description('Downloading stock news for {}'.format(ticker))
 
-            ticker = ticker.lower()
-            if len(ticker) > 3 and (ticker not in dict_set):
-                ticker = ticker.upper()
-            else:
-                ticker = ticker.upper()
-                ticker = data_ticker[ticker]
-                ticker = ticker.upper()
-            # print(ticker)
             flag = True
             while flag:
-                r = requests.get(NewsAPIDotOrg.URL % (ticker, datetime.now() - timedelta(days=7)))
+                r = requests.get(NewsAPIDotOrg.URL % (query_ticker_term(ticker), datetime.now() - timedelta(days=7)))
 
                 try:
                     obj = json.loads(r.text)
@@ -94,14 +83,15 @@ class NewsAPIDotOrg(News):
 
 
 class HistoricNews(News):
-
     """
         Courtesy of https://newsapi.org/
     """
 
     NY_API_KEY = CONFIG["downloaders"]["news"]["nyt_key"]
+    GUARDIAN_API_KEY = CONFIG["downloaders"]["news"]["guardian_key"]
     HISTORICAL = 'TIME_SERIES_DAILY'
-    URL = 'https://newsapi.org/v2/everything?q=%s&from=%s&pageSize=100&language=en&apiKey=' + NY_API_KEY
+    NYT_URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q="%s"&api-key=' + NY_API_KEY
+    GUARDIAN_URL = 'https://content.guardianapis.com/search?q="%s"&page-size=50&page=%s&api-key=' + GUARDIAN_API_KEY
 
     """
         Get news articles for training. (Slow)
@@ -110,70 +100,84 @@ class HistoricNews(News):
     @staticmethod
     def download(tickers):
         News.init()
-        loop = tqdm(total=len(list(tickers)))
-        news_articles = []
+        NewsAPIDotOrg.download(tickers)
+        news_articles = {}
 
-        nyt_url = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=%s&api-key=' + NY_API_KEY
+        # NYT News Data, don't wait for GUARDIAN API timeouts..
+        def new_york_times():
+            for ticker in tickers:
+                flag = True
+                while flag:
+                    time.sleep(1)
+                    r = requests.get(HistoricNews.NYT_URL % query_ticker_term(ticker))
 
-        # NYT News Data.
-        # TODO: Make downloader better. AAPL works perfectly, F does not return any articles on Ford.
-        for ticker in tickers:
-            loop.set_description('Downloading NYT stock news for {}'.format(ticker))
+                    try:
+                        obj = json.loads(r.text)
+                        if obj["status"].lower() == "ok":
+                            docs = obj["response"]["docs"]
 
-            flag = True
-            while flag:
-                r = requests.get(nyt_url % ticker)
+                            if ticker not in news_articles.keys():
+                                news_articles[ticker] = []
+                            for doc in docs:
+                                news_articles[ticker].append({"title": doc['lead_paragraph'].split('. ')[0],
+                                                              "publishedAt": doc['pub_date'], "url": doc['web_url']})
+                        else:
+                            raise KeyError()
+                        flag = False
+                    except KeyError:
+                        print('Sleeping for an hour. Too many requests on nyt')
+                        time.sleep(3600)
 
-                try:
-                    obj = json.loads(r.text)
-                    if obj["status"].lower() == "ok":
-                        docs = obj["response"]["docs"]
+        # Guardian News Data, don't wait for NYT API timeouts.
+        def guardian():
+            for ticker in tickers:
+                flag = True
+                page_num = 1
+                while flag:
+                    time.sleep(1)
+                    r = requests.get(HistoricNews.GUARDIAN_URL % (query_ticker_term(ticker), page_num))
 
-                        for doc in docs:
-                            news_articles.append({"title": doc['lead_paragraph'].split('. ')[0],
-                                                  "publishedAt": doc['pub_date'], "url": doc['web_url']})
-                    else:
-                        raise KeyError()
-                    loop.update(1)
-                    flag = False
-                except KeyError:
-                    loop.set_description('Sleeping for an hour. Too many requests on nyt')
-                    time.sleep(3600)
+                    try:
+                        obj = json.loads(r.text)['response']
+                        if obj["status"].lower() == "ok":
+                            docs = obj["results"]
 
-        loop.close()
-        loop = tqdm(total=len(list(tickers)))
+                            if ticker not in news_articles.keys():
+                                news_articles[ticker] = []
+                            for doc in docs:
+                                news_articles[ticker].append({"title": doc['webTitle'].split('. ')[0], "publishedAt": doc['webPublicationDate'], "url": doc['webUrl']})
 
-        intrino_url = 'https://api-v2.intrinio.com/companies/%s/news?page_size=1000&api_key=' + \
-                      CONFIG['downloaders']['news']['intrino_key']
-        for ticker in tickers:
-            loop.set_description('Downloading Intrino stock news for {}'.format(ticker))
+                            if obj['currentPage'] < obj['pages']:
+                                page_num += 1
+                            else:
+                                flag = False
+                        else:
+                            raise KeyError()
 
-            flag = True
-            while flag:
-                r = requests.get(intrino_url % ticker)
-                if r.status_code == 429 and "1 Minute Call" in json.loads(r.text)['error']:
-                    loop.set_description('Sleeping for an minute. Too many requests on intrino')
-                    time.sleep(90)
-                    continue
+                    except KeyError:
+                        print('Sleeping for an hour. Too many requests on guardian')
+                        time.sleep(3600)
 
-                try:
+        print("Starting News Daemons!")
+        nyt_thread = threading.Thread(target=new_york_times(), daemon=True)
+        guardian_thread = threading.Thread(target=guardian(), daemon=True)
 
-                    obj = json.loads(r.text)
-                    docs = obj["news"]
+        nyt_thread.start()
+        guardian_thread.start()
 
-                    for doc in docs:
-                        news_articles.append({"title": doc['title'],
-                                              "publishedAt": doc['publication_date'], "url": doc['url']})
-                    else:
-                        raise KeyError()
-                    loop.update(1)
-                    flag = False
-                except KeyError:
-                    loop.set_description('Sleeping for an hour. Too many requests on intrino')
-                    time.sleep(3600)
+        # Wait for both threads to finish before writing.
+        print("Waiting for News Daemons!")
+        nyt_thread.join()
+        guardian_thread.join()
 
-        json_data = {"status": "ok", "totalResults": len(docs), "articles": news_articles}
-        with open(os.path.join(News.DATA_PATH, ticker + '.json'), "w") as file:
-            file.write(json.dumps(json_data))
+        # TODO: ADD other news API's here.
 
-#NewsAPIDotOrg.download(["AAPL", "GE", "SNAP", "AMZN", "F"])
+        print("Writing News Data to Disk!")
+        for key, value in news_articles.items():
+            # Make JSON look like newsapi json format to not break things!
+            json_data = {"status": "ok", "totalResults": len(value), "articles": value}
+            with open(os.path.join(News.DATA_PATH, key + '.json'), "w") as file:
+                file.write(json.dumps(json_data))
+
+
+HistoricNews.download(["AAPL", "GE", "SNAP", "AMZN"])

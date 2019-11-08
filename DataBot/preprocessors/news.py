@@ -1,7 +1,9 @@
 from DataBot.config import CONFIG
-
+from DataBot.util import query_ticker_term
 from pathlib import Path
 from tqdm import tqdm
+
+import pandas as pd
 
 import datetime
 import newspaper
@@ -38,6 +40,10 @@ class News:
                 json_data = json.loads(f.read())
 
             os.mkdir(os.path.join(News.DATA_OUT_PATH, file.replace(".json", "")))
+
+            # Add check for articles from kaggle.
+            News.all_the_data(file.replace(".json", ""))
+
             loop = tqdm(total=int(json_data['totalResults']))
             for article_summary in json_data['articles']:
                 url = article_summary['url']
@@ -72,6 +78,33 @@ class News:
                 loop.update(1)
 
             loop.close()
+
+    @staticmethod
+    def all_the_data(ticker):
+        all_the_data_path = CONFIG['downloaders']['news']['kaggle']
+        datasets = os.listdir(all_the_data_path)
+        for dataset in datasets:
+            table = pd.read_csv(os.path.join(all_the_data_path, dataset))
+            table = table[table['content'].str.contains(query_ticker_term(ticker), case=False)]
+            for index, row in table.iterrows():
+                try:
+                    date = datetime.datetime.strptime(row['date'], '%Y-%m-%d')
+                except ValueError:
+                    date = datetime.datetime.strptime(
+                        datetime.datetime.strptime(row['date'], '%Y/%m/%d').strftime('%Y-%m-%d'), '%Y-%m-%d')
+                except TypeError:
+                    continue
+
+                date = date.date()
+
+                path = Path(os.path.join(News.DATA_OUT_PATH, ticker, str(date)))
+                if not path.is_dir():
+                    os.mkdir(path)
+
+                title = row['title']
+                with open(os.path.join(path, title.replace("/", "") + ".txt"), "w") as f:
+                    f.write(title + '\n')
+                    f.write(row['content'])
 
 News.process()
 

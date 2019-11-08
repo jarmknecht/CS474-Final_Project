@@ -14,9 +14,11 @@ CONFIG = {
     },
     "news": {
       "path": DATA_DIR + "raw/news",
+      "kaggle": DATA_DIR + "all-the-news",
       "news_key": "4d073d92cc214aef9cb00367878b8243",
       "nyt_key": "W68vMvjGpHA7E2Cmr4VX8RxkAEc8dVGJ",
-      "intrino_key": "OjBmNDgxMWQ1NDQ5ZDhjMDk0NDNmNGZkMmVlMmViM2M2"
+      "intrino_key": "OjBmNDgxMWQ1NDQ5ZDhjMDk0NDNmNGZkMmVlMmViM2M2",
+      "guardian_key": "11449c3e-48f6-4600-9dd5-7dc5711c5975"
     },
     "social": {
       "path": DATA_DIR + "raw/social",
