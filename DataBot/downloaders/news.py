@@ -89,9 +89,11 @@ class HistoricNews(News):
 
     NY_API_KEY = CONFIG["downloaders"]["news"]["nyt_key"]
     GUARDIAN_API_KEY = CONFIG["downloaders"]["news"]["guardian_key"]
+    FT_API_KEY = CONFIG["downloaders"]["news"]["ft_key"]
     HISTORICAL = 'TIME_SERIES_DAILY'
     NYT_URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q="%s"&api-key=' + NY_API_KEY
     GUARDIAN_URL = 'https://content.guardianapis.com/search?q="%s"&page-size=50&page=%s&api-key=' + GUARDIAN_API_KEY
+    FT_URL = 'https://api.ft.com/content/search/v1'
 
     """
         Get news articles for training. (Slow)
@@ -105,6 +107,7 @@ class HistoricNews(News):
 
         # NYT News Data, don't wait for GUARDIAN API timeouts..
         def new_york_times():
+            print("NYT Thread Running...")
             for ticker in tickers:
                 flag = True
                 while flag:
@@ -130,6 +133,7 @@ class HistoricNews(News):
 
         # Guardian News Data, don't wait for NYT API timeouts.
         def guardian():
+            print("Guardian Thread Running...")
             for ticker in tickers:
                 flag = True
                 page_num = 1

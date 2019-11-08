@@ -27,9 +27,10 @@ class News:
         var = Path(News.DATA_OUT_PATH)
         if not var.is_dir():
             os.mkdir(News.DATA_OUT_PATH)
-        else:
-            shutil.rmtree(News.DATA_OUT_PATH)
-            os.mkdir(News.DATA_OUT_PATH)
+        # Keep adding to our stock news, every week gets more info.
+        # else:
+        #     shutil.rmtree(News.DATA_OUT_PATH)
+        #     os.mkdir(News.DATA_OUT_PATH)
 
     @staticmethod
     def process():
@@ -102,9 +103,13 @@ class News:
                     os.mkdir(path)
 
                 title = row['title']
-                with open(os.path.join(path, title.replace("/", "") + ".txt"), "w") as f:
-                    f.write(title + '\n')
-                    f.write(row['content'])
+
+                # Add to our old news data.
+                file_path = Path(os.path.join(path, title.replace("/", "") + ".txt"))
+                if not file_path.exists():
+                    with open(os.path.join(path, title.replace("/", "") + ".txt"), "w") as f:
+                        f.write(title + '\n')
+                        f.write(row['content'])
 
 News.process()
 

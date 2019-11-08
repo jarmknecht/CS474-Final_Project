@@ -13,7 +13,7 @@ def query_ticker_term(ticker):
         dict_set = set(line.strip() for line in dictionary)
 
     ticker = ticker.lower()
-    if len(ticker) > 3 and (ticker not in dict_set):
+    if len(ticker) > 2 and (ticker not in dict_set):
         ticker = ticker.upper()
     else:
         ticker = ticker.upper()
