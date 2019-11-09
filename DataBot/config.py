@@ -6,6 +6,7 @@ DATA_DIR = "./data/"
 CONFIG = {
   "all": {
     "date_format": "%Y-%m-%d",
+    "symbols": DATA_DIR + "fortune500"
   },
   "downloaders": {
     "stocks": {

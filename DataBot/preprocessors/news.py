@@ -22,6 +22,8 @@ class News:
     DATA_OUT_PATH = CONFIG["preprocessors"]["news"]["path"]
     DATE_FORMAT = CONFIG["all"]["date_format"]
 
+
+
     @staticmethod
     def init():
         var = Path(News.DATA_OUT_PATH)
@@ -35,6 +37,10 @@ class News:
     @staticmethod
     def process():
         News.init()
+
+        with open(os.path.join(CONFIG['all']['symbols'], 'fortune500s_n.json'), 'r') as f:
+            fortune500s_n = json.loads(f.read())
+
         news_catalog = os.listdir(News.DATA_IN_PATH)
         for file in news_catalog:
             with open(os.path.join(News.DATA_IN_PATH, file), "r") as f:
@@ -72,14 +78,15 @@ class News:
 
                 # Attempt to get more relevant news content.
                 content = []
-                if ticker in title or query_ticker_term(ticker) in title:
+                ticker = file.replace(".json", "")
+                if " " + ticker + " " in title or "(" + ticker + ")" in title or fortune500s_n[ticker] in title:
                     content.append(title)
 
                 corpus = text
                 sentences = corpus.split(".")
                 content = []
                 for sentence in sentences:
-                    if ticker in sentence or query_ticker_term(ticker) in sentence:
+                    if " " + ticker + " " in title or "(" + ticker + ")" in title or fortune500s_n[ticker] in title:
                         content.append(sentence)
 
                 if len(content) != 0:
@@ -98,6 +105,10 @@ class News:
 
     @staticmethod
     def all_the_data(ticker):
+
+        with open(os.path.join(CONFIG['all']['symbols'], 'fortune500s_n.json'), 'r') as f:
+            fortune500s_n = json.loads(f.read())
+
         all_the_data_path = CONFIG['downloaders']['news']['kaggle']
         datasets = os.listdir(all_the_data_path)
         for dataset in datasets:
@@ -118,14 +129,14 @@ class News:
 
                 # Attempt to get more relevant news content.
                 content = []
-                if ticker in title or query_ticker_term(ticker) in title:
+                if " " + ticker + " " in title or "(" + ticker + ")" in title or fortune500s_n[ticker] in title:
                     content.append(title)
 
                 corpus = row['content']
                 sentences = corpus.split(".")
                 content = []
                 for sentence in sentences:
-                    if ticker in sentence or query_ticker_term(ticker) in sentence:
+                    if " " + ticker + " " in title or "(" + ticker + ")" in title or fortune500s_n[ticker] in title:
                         content.append(sentence)
 
                 if len(content) != 0:
