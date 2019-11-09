@@ -45,7 +45,7 @@ class NewsAPIDotOrg(News):
 
     API_KEY = CONFIG["downloaders"]["news"]["news_key"]
     HISTORICAL = 'TIME_SERIES_DAILY'
-    URL = 'https://newsapi.org/v2/everything?qInTitle=%s&from=%s&pageSize=100&language=en&apiKey=' + API_KEY
+    URL = 'https://newsapi.org/v2/everything?q=%s&from=%s&pageSize=100&language=en&apiKey=' + API_KEY
 
     """
         Method for real time stock test articles.

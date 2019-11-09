@@ -40,7 +40,9 @@ class News:
             with open(os.path.join(News.DATA_IN_PATH, file), "r") as f:
                 json_data = json.loads(f.read())
 
-            os.mkdir(os.path.join(News.DATA_OUT_PATH, file.replace(".json", "")))
+            var = Path(os.path.join(News.DATA_OUT_PATH, file.replace(".json", "")))
+            if not var.is_dir():
+                os.mkdir(os.path.join(News.DATA_OUT_PATH, file.replace(".json", "")))
 
             # Add check for articles from kaggle.
             News.all_the_data(file.replace(".json", ""))
@@ -68,13 +70,27 @@ class News:
                 date = datetime.datetime.strptime(date, '%Y-%m-%d')   # 2019-10-30T19:15:10Z
                 date = date.date()
 
-                path = Path(os.path.join(News.DATA_OUT_PATH, file.replace(".json", ""), str(date)))
-                if not path.is_dir():
-                    os.mkdir(path)
+                # Attempt to get more relevant news content.
+                content = []
+                if ticker in title or query_ticker_term(ticker) in title:
+                    content.append(title)
 
-                with open(os.path.join(path, title.replace("/", "") + ".txt"), "w") as f:
-                    f.write(title + '\n')
-                    f.write(text)
+                corpus = text
+                sentences = corpus.split(".")
+                content = []
+                for sentence in sentences:
+                    if ticker in sentence or query_ticker_term(ticker) in sentence:
+                        content.append(sentence)
+
+                if len(content) != 0:
+                    path = Path(os.path.join(News.DATA_OUT_PATH, file.replace(".json", ""), str(date)))
+                    if not path.is_dir():
+                        os.mkdir(path)
+
+                    file_path = Path(os.path.join(path, title.replace("/", "") + ".txt"))
+                    if not file_path.exists():
+                        with open(os.path.join(path, title.replace("/", "") + ".txt"), "w") as f:
+                            f.write(".".join(content))
 
                 loop.update(1)
 
@@ -98,18 +114,31 @@ class News:
 
                 date = date.date()
 
-                path = Path(os.path.join(News.DATA_OUT_PATH, ticker, str(date)))
-                if not path.is_dir():
-                    os.mkdir(path)
-
                 title = row['title']
 
-                # Add to our old news data.
-                file_path = Path(os.path.join(path, title.replace("/", "") + ".txt"))
-                if not file_path.exists():
-                    with open(os.path.join(path, title.replace("/", "") + ".txt"), "w") as f:
-                        f.write(title + '\n')
-                        f.write(row['content'])
+                # Attempt to get more relevant news content.
+                content = []
+                if ticker in title or query_ticker_term(ticker) in title:
+                    content.append(title)
 
-# News.process()
+                corpus = row['content']
+                sentences = corpus.split(".")
+                content = []
+                for sentence in sentences:
+                    if ticker in sentence or query_ticker_term(ticker) in sentence:
+                        content.append(sentence)
+
+                if len(content) != 0:
+                    path = Path(os.path.join(News.DATA_OUT_PATH, ticker, str(date)))
+                    if not path.is_dir():
+                        os.mkdir(path)
+
+                    # Add to our old news data.
+                    file_path = Path(os.path.join(path, title.replace("/", "") + ".txt"))
+                    if not file_path.exists():
+                        with open(os.path.join(path, title.replace("/", "") + ".txt"), "w") as f:
+                            f.write(".".join(content))
+
+print("Stating...")
+News.process()
 

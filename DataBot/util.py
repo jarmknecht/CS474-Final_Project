@@ -14,10 +14,9 @@ def query_ticker_term(ticker):
 
     ticker = ticker.lower()
     if len(ticker) > 2 and (ticker not in dict_set):
-        ticker = ticker.upper()
+        ticker = ticker.upper()    # Maybe return " GE " or "(GE)" to avoid PGE.
     else:
         ticker = ticker.upper()
         ticker = data_ticker[ticker]
         ticker = ticker.upper()
-
     return ticker
