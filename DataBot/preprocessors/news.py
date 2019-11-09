@@ -84,7 +84,6 @@ class News:
 
                 corpus = text
                 sentences = corpus.split(".")
-                content = []
                 for sentence in sentences:
                     if " " + ticker + " " in title or "(" + ticker + ")" in title or fortune500s_n[ticker] in title:
                         content.append(sentence)
@@ -134,7 +133,6 @@ class News:
 
                 corpus = row['content']
                 sentences = corpus.split(".")
-                content = []
                 for sentence in sentences:
                     if " " + ticker + " " in title or "(" + ticker + ")" in title or fortune500s_n[ticker] in title:
                         content.append(sentence)
