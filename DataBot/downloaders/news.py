@@ -131,7 +131,7 @@ class HistoricNews(News):
                         if len(data['response']['docs']) == 0:
                             flag = False
                         else:
-                            page_bum += 1  # Go get the other articles.
+                            page_num += 1  # Go get the other articles.
                     except KeyError:
                         print('Sleeping for an hour. Too many requests on nyt')
                         time.sleep(3600)

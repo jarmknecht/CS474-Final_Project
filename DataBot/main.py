@@ -28,15 +28,15 @@ def main():
     tickers = ["AAPL", "GOOG", "FB", "F", "GE", "SNAP"]
 
     if args.quotes is not None:
-        stock_downloader = Thread(target=stock_price_workflow(args.quotes, tickers))
+        stock_downloader = Thread(target=stock_price_workflow(args.quotes, tickers), daemon=True)
         stock_downloader.start()
 
     if args.news is not None:
-        news_downloader = Thread(target=stock_news_workflow(args.news, tickers))
+        news_downloader = Thread(target=stock_news_workflow(args.news, tickers), daemon=True)
         news_downloader.start()
 
     if args.social is not None:
-        social_downloader = Thread(target=stock_social_workflow(args.social, tickers))
+        social_downloader = Thread(target=stock_social_workflow(args.social, tickers), daemon=True)
         social_downloader.start()
 
 
@@ -48,7 +48,7 @@ def stock_price_workflow(quote_args, tickers):
 
 def stock_news_workflow(news_args, tickers):
     if news_args == 'all':
-        HistoricNews.download(tickers=tickers)
+        HistoricNews.download(tickers=tickers)  # May want to break this up into chuncks on systems with low memory.
         News.process()
     elif news_args == 'last-week':
         NewsAPIDotOrg.download(tickers=tickers)
