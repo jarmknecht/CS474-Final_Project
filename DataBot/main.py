@@ -43,7 +43,7 @@ def main():
 def stock_price_workflow(quote_args, tickers):
     if quote_args == 'download':
         AlphaVantage.download(tickers=tickers)
-    Stock.process(window=15)    # Shorter windows for short term, longer windows for long term.
+    Stock.process(window=5)    # Shorter windows for short term, longer windows for long term.
 
 
 def stock_news_workflow(news_args, tickers):
