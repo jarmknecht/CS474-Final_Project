@@ -45,7 +45,7 @@ class NewsAPIDotOrg(News):
 
     API_KEY = CONFIG["downloaders"]["news"]["news_key"]
     HISTORICAL = 'TIME_SERIES_DAILY'
-    URL = 'https://newsapi.org/v2/everything?q=%s&from=%s&pageSize=100&language=en&apiKey=' + API_KEY
+    URL = 'https://newsapi.org/v2/everything?qInTitle=%s&from=%s&pageSize=100&language=en&apiKey=' + API_KEY
 
     """
         Method for real time stock test articles.
@@ -91,7 +91,7 @@ class HistoricNews(News):
     GUARDIAN_API_KEY = CONFIG["downloaders"]["news"]["guardian_key"]
     FT_API_KEY = CONFIG["downloaders"]["news"]["ft_key"]
     HISTORICAL = 'TIME_SERIES_DAILY'
-    NYT_URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q="%s"&api-key=' + NY_API_KEY
+    NYT_URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q="%s"&page=%s&api-key=' + NY_API_KEY
     GUARDIAN_URL = 'https://content.guardianapis.com/search?q="%s"&page-size=50&page=%s&api-key=' + GUARDIAN_API_KEY
     FT_URL = 'https://api.ft.com/content/search/v1'
 
@@ -110,9 +110,10 @@ class HistoricNews(News):
             print("NYT Thread Running...")
             for ticker in tickers:
                 flag = True
+                page_num = 0
                 while flag:
                     time.sleep(1)
-                    r = requests.get(HistoricNews.NYT_URL % query_ticker_term(ticker))
+                    r = requests.get(HistoricNews.NYT_URL % (query_ticker_term(ticker), page_num))
 
                     try:
                         obj = json.loads(r.text)
@@ -126,7 +127,11 @@ class HistoricNews(News):
                                                               "publishedAt": doc['pub_date'], "url": doc['web_url']})
                         else:
                             raise KeyError()
-                        flag = False
+
+                        if len(data['response']['docs']) == 0:
+                            flag = False
+                        else:
+                            page_bum += 1  # Go get the other articles.
                     except KeyError:
                         print('Sleeping for an hour. Too many requests on nyt')
                         time.sleep(3600)
@@ -184,4 +189,4 @@ class HistoricNews(News):
                 file.write(json.dumps(json_data))
 
 
-HistoricNews.download(["AAPL", "GE", "SNAP", "AMZN"])
+# HistoricNews.download(["AAPL", "GE", "SNAP", "AMZN"])

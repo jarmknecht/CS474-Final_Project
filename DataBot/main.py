@@ -15,7 +15,7 @@ def main():
 
     # Parse command line arguments.
     parser = argparse.ArgumentParser(description='DataBot for downloading stock data.')
-    parser.add_argument('-q', '--quotes', choices=['download-plus-calc', 'calc-only'], help='Download historical stock market prices.')
+    parser.add_argument('-q', '--quotes', choices=['all', 'today', 'recalculate'], help='Download historical stock market prices.')
     parser.add_argument('-n', '--news', choices=['all', 'last-week'], help='Download news articles for stocks.')
     parser.add_argument('-s', '--social', choices=['all', 'last-week'], help='Download tweets for stocks.')
     args = parser.parse_args()

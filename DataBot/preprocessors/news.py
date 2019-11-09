@@ -111,5 +111,5 @@ class News:
                         f.write(title + '\n')
                         f.write(row['content'])
 
-News.process()
+# News.process()
 
