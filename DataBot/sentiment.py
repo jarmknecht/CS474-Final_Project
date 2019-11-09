@@ -36,3 +36,7 @@ if __name__ == "__main__":
     sentiment_scores(sentence)
 
     print('\n4th Statement: ')
+    f = open('./data/preprocessed/news/AAPL/2019-10-31/Disney Earnings Preview: What\'.txt', 'r')
+    sentence = f.read()
+    sentiment_scores(sentence)
+    f.close()
