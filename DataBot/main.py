@@ -18,6 +18,7 @@ def main():
     parser.add_argument('-q', '--quotes', choices=['all', 'today', 'recalculate'], help='Download historical stock market prices.')
     parser.add_argument('-n', '--news', choices=['all', 'last-week'], help='Download news articles for stocks.')
     parser.add_argument('-s', '--social', choices=['all', 'last-week'], help='Download tweets for stocks.')
+    parser.add_argument('-p', '--path', help='Path to store data.')
     args = parser.parse_args()
 
     # Use ticker data to load all fortune 500 this is a dictionary with key as name of company and value as symbol
@@ -26,6 +27,9 @@ def main():
 
     # Start
     tickers = ["AAPL", "GOOG", "FB", "F", "GE", "SNAP"]
+
+    if args.path is not None:
+        CONFIG.DATA_DIR = args.path
 
     if args.quotes is not None:
         stock_downloader = Thread(target=stock_price_workflow(args.quotes, tickers), daemon=True)
