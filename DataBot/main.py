@@ -1,3 +1,14 @@
+'''
+# Uncomment and change paths to your computer to work on the command line.
+PATHS = ['/home/greensurfer/CS474-Final_Project', '/home/greensurfer/CS474-Final_Project/DataBot', '/Users/austinkolander/Code/school/CS474-Final_Project', '/home/greensurfer/CS474-Final_Project/DataBot/venv/lib/python3.5/site-packages']
+
+import sys
+for path in PATHS:
+    sys.path.append(path)
+
+print(sys.path)
+'''
+
 import argparse
 import json
 from threading import Thread
@@ -7,7 +18,7 @@ from DataBot.preprocessors.news import News
 from DataBot.downloaders.news import NewsAPIDotOrg
 from DataBot.preprocessors.stock import Stock
 from DataBot.config import init_datapaths
-
+from DataBot.config import DATA_DIR
 
 def main():
     init_datapaths()
@@ -30,8 +41,8 @@ def main():
     for key, value in ticker_data.items():
         tickers.append(value)
 
-    if args.path is not None:
-        CONFIG.DATA_DIR = args.path
+    #if args.path is not None:
+    #   DATA_DIR = args.path
 
     if args.quotes is not None:
         stock_downloader = Thread(target=stock_price_workflow(args.quotes, tickers), daemon=True)
@@ -47,8 +58,8 @@ def main():
 
 
 def stock_price_workflow(quote_args, tickers):
-    if quote_args == 'download':
-        AlphaVantage.download(tickers=tickers)
+    if quote_args != 'recalculate':
+        AlphaVantage.download(tickers=tickers) # TODO: Find a way to quickly update stock data for the last day. (MEDUIM PRIORITY)
     Stock.process(window=5)    # Shorter windows for short term, longer windows for long term.
 
 
