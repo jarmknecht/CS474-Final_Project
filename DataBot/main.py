@@ -2,11 +2,11 @@ import argparse
 import json
 from threading import Thread
 
-from DataBot import AlphaVantage
-from DataBot import News
-from DataBot import NewsAPIDotOrg
-from DataBot import Stock
-from DataBot import init_datapaths
+from DataBot.downloaders.stock_prices import AlphaVantage
+from DataBot.preprocessors.news import News
+from DataBot.downloaders.news import NewsAPIDotOrg
+from DataBot.preprocessors.stock import Stock
+from DataBot.config import init_datapaths
 
 
 def main():

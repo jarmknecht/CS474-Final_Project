@@ -4,7 +4,7 @@ import pandas as pd
 import shutil
 from pathlib import Path
 
-from DataBot import CONFIG
+from DataBot.config import CONFIG
 
 
 class Stock:

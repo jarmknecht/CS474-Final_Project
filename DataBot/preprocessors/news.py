@@ -7,8 +7,8 @@ import shutil
 from pathlib import Path
 from tqdm import tqdm
 
-from DataBot import CONFIG
-from DataBot import query_ticker_term
+from DataBot.config import CONFIG
+from DataBot.util import query_ticker_term
 
 
 class News:

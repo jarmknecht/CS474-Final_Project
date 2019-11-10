@@ -7,7 +7,7 @@ from abc import abstractmethod
 from pathlib import Path
 from tqdm import tqdm
 
-from DataBot import CONFIG
+from DataBot.config import CONFIG
 
 
 class StockPrice:
