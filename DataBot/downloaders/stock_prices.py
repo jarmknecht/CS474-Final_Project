@@ -1,13 +1,13 @@
-from DataBot.config import CONFIG
+import json
+import os
+import requests
+import shutil
+import time
 from abc import abstractmethod
 from pathlib import Path
 from tqdm import tqdm
 
-import requests
-import shutil
-import json
-import time
-import os
+from DataBot import CONFIG
 
 
 class StockPrice:

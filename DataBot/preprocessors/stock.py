@@ -1,11 +1,10 @@
-from DataBot.config import CONFIG
-from pathlib import Path
-
-import pandas as pd
-
-import shutil
 import json
 import os
+import pandas as pd
+import shutil
+from pathlib import Path
+
+from DataBot import CONFIG
 
 
 class Stock:

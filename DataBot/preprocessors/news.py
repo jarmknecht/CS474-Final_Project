@@ -1,15 +1,14 @@
-from DataBot.config import CONFIG
-from DataBot.util import query_ticker_term
+import datetime
+import json
+import newspaper
+import os
+import pandas as pd
+import shutil
 from pathlib import Path
 from tqdm import tqdm
 
-import pandas as pd
-
-import datetime
-import newspaper
-import shutil
-import json
-import os
+from DataBot import CONFIG
+from DataBot import query_ticker_term
 
 
 class News:
@@ -148,6 +147,6 @@ class News:
                         with open(os.path.join(path, title.replace("/", "") + ".txt"), "w") as f:
                             f.write(".".join(content))
 
-print("Stating...")
-News.process()
+#print("Stating...")
+#News.process()
 

@@ -1,18 +1,17 @@
-from datetime import datetime, timedelta
-from DataBot.config import CONFIG
-from abc import abstractmethod
-from pathlib import Path
-from tqdm import tqdm
-from DataBot.util import query_ticker_term
-
+import json
+import os
 import pandas as pd
-
-import threading
 import requests
 import shutil
-import json
+import threading
 import time
-import os
+from abc import abstractmethod
+from datetime import datetime, timedelta
+from pathlib import Path
+from tqdm import tqdm
+
+from DataBot import CONFIG
+from DataBot import query_ticker_term
 
 
 # https://stocknewsapi.com

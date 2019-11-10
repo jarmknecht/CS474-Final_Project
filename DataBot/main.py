@@ -1,13 +1,12 @@
-from DataBot.downloaders.stock_prices import AlphaVantage
-from DataBot.downloaders.news import NewsAPIDotOrg
-from DataBot.config import init_datapaths
-from threading import Thread
-
-from DataBot.preprocessors.news import News
-from DataBot.preprocessors.stock import Stock
-
 import argparse
 import json
+from threading import Thread
+
+from DataBot import AlphaVantage
+from DataBot import News
+from DataBot import NewsAPIDotOrg
+from DataBot import Stock
+from DataBot import init_datapaths
 
 
 def main():
@@ -27,6 +26,9 @@ def main():
 
     # Start
     tickers = ["AAPL", "GOOG", "FB", "F", "GE", "SNAP"]
+    tickers = []
+    for key, value in ticker_data.items():
+        tickers.append(value)
 
     if args.path is not None:
         CONFIG.DATA_DIR = args.path
@@ -67,3 +69,4 @@ def stock_social_workflow(social_args, tickers):
 
 if __name__ == "__main__":
     main()
+
