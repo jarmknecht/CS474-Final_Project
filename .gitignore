@@ -4,6 +4,5 @@
 /DataBot/data/raw/*
 /DataBot/.DS_Store
 /DataBot/__pycache__/*
-/DataBot/.idea/*.xml
-/DataBot/.idea/*.iml
+/DataBot/.idea/*
 /DataBot/data/all-the-news/*.csv
