@@ -36,6 +36,10 @@ class Stock:
            Calculates
                 - moving average
                 - bollinger bands
+                - macd
+                - ema
+                - sma
+                - momentum
 
            Shorter windows should be used when considering short term investments, while longer
            windows should be considered for longer term investments.
