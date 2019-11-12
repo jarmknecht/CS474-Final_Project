@@ -127,13 +127,13 @@ class HistoricNews(News):
                         else:
                             raise KeyError()
 
-                        if len(data['response']['docs']) == 0:
+                        if len(obj['response']['docs']) == 0:
                             flag = False
                         else:
                             page_num += 1  # Go get the other articles.
                     except KeyError:
-                        print('Sleeping for an hour. Too many requests on nyt')
-                        time.sleep(3600)
+                        print('Sleeping for ten minutes. Too many requests on nyt: ' + str(r.text))
+                        time.sleep(360)
 
         # Guardian News Data, don't wait for NYT API timeouts.
         def guardian():
@@ -163,12 +163,12 @@ class HistoricNews(News):
                             raise KeyError()
 
                     except KeyError:
-                        print('Sleeping for an hour. Too many requests on guardian')
-                        time.sleep(3600)
+                        print('Sleeping for ten minutes. Too many requests on guardian: ' + str(r.text))
+                        time.sleep(600)
 
         print("Starting News Daemons!")
-        nyt_thread = threading.Thread(target=new_york_times(), daemon=True)
-        guardian_thread = threading.Thread(target=guardian(), daemon=True)
+        nyt_thread = threading.Thread(target=new_york_times, args=(), daemon=True)
+        guardian_thread = threading.Thread(target=guardian, args=(), daemon=True)
 
         nyt_thread.start()
         guardian_thread.start()
@@ -178,14 +178,18 @@ class HistoricNews(News):
         nyt_thread.join()
         guardian_thread.join()
 
-        # TODO: ADD other news API's here.
-
         print("Writing News Data to Disk!")
         for key, value in news_articles.items():
-            # Make JSON look like newsapi json format to not break things!
-            json_data = {"status": "ok", "totalResults": len(value), "articles": value}
-            with open(os.path.join(News.DATA_PATH, key + '.json'), "w") as file:
-                file.write(json.dumps(json_data))
+            '''
+                Make like newsAPI to make compatible with preprocessor, merge news items to one file.
+            '''
+            with open(os.path.join(News.DATA_PATH, key + '.json'), "r") as file:
+                preexisting = json.loads(file.read())
+                preexisting["articles"].extend(value)
+                preexisting["totalResults"] = len(preexisting["articles"])
+
+            with open(os.path.join(News.DATA_PATH, key + '.json'), 'w') as file:
+                file.write(json.dumps(preexisting))
 
 
 # HistoricNews.download(["AAPL", "GE", "SNAP", "AMZN"])
