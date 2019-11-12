@@ -40,7 +40,7 @@ class AlphaVantage(StockPrice):
 
         # Download New Data.
         for ticker in tickers:
-            print('Downloading stock prices for {}'.format(ticker))
+            # print('Downloading stock prices for {}'.format(ticker))
             flag = True
             while flag:
                 r = requests.get(AlphaVantage.URL % (AlphaVantage.HISTORICAL, ticker))

@@ -128,7 +128,7 @@ class HistoricNews(News):
                         else:
                             raise KeyError()
 
-                        if len(obj['response']['docs']) == 0:
+                        if len(obj['response']['docs']) == 0 or page_num >= 200:
                             flag = False
                         else:
                             page_num += 1  # Go get the other articles.
@@ -161,6 +161,9 @@ class HistoricNews(News):
                                 page_num += 1
                             else:
                                 flag = False
+                        elif obj["status"].lower() == "error" and "Content API does not support paging this far." in obj['message']:
+                            # Went to deep, move on to next stock.
+                            flag = False
                         else:
                             raise KeyError()
 
