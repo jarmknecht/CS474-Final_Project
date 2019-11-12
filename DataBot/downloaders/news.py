@@ -108,10 +108,11 @@ class HistoricNews(News):
         def new_york_times():
             print("NYT Thread Running...")
             for ticker in tickers:
+                print("NYT % done: " + str(tickers.index(ticker) + "/" + str(len(tickers))))
                 flag = True
                 page_num = 0
                 while flag:
-                    time.sleep(1)
+                    time.sleep(6)
                     r = requests.get(HistoricNews.NYT_URL % (query_ticker_term(ticker), page_num))
 
                     try:
@@ -133,12 +134,13 @@ class HistoricNews(News):
                             page_num += 1  # Go get the other articles.
                     except KeyError:
                         print('Sleeping for ten minutes. Too many requests on nyt: ' + str(r.text))
-                        time.sleep(360)
+                        time.sleep(600)
 
         # Guardian News Data, don't wait for NYT API timeouts.
         def guardian():
             print("Guardian Thread Running...")
             for ticker in tickers:
+                print("Guardian % done: " + str(tickers.index(ticker) + "/" + str(len(tickers))))
                 flag = True
                 page_num = 1
                 while flag:
