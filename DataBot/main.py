@@ -1,13 +1,15 @@
-'''
+"""
 # Uncomment and change paths to your computer to work on the command line.
 PATHS = ['/home/greensurfer/CS474-Final_Project', '/home/greensurfer/CS474-Final_Project/DataBot', '/Users/austinkolander/Code/school/CS474-Final_Project', '/home/greensurfer/CS474-Final_Project/DataBot/venv/lib/python3.5/site-packages']
 
+import os
 import sys
 for path in PATHS:
     sys.path.append(path)
 
 print(sys.path)
-'''
+print("PID: " + str(os.getpid()))
+"""
 
 import argparse
 import json
@@ -38,7 +40,7 @@ def main():
 
     # Start
     #tickers = ["AAPL", "GOOG", "FB", "F", "GE", "SNAP"]
-    tickers = ["AAPL"]
+    #tickers = ["AAPL"]
     tickers = []
     for key, value in ticker_data.items():
         tickers.append(value)

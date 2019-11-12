@@ -100,15 +100,15 @@ class HistoricNews(News):
 
     @staticmethod
     def download(tickers):
-        News.init()
-        NewsAPIDotOrg.download(tickers)
+        #News.init()
+        #NewsAPIDotOrg.download(tickers)
         news_articles = {}
 
         # NYT News Data, don't wait for GUARDIAN API timeouts..
         def new_york_times():
             print("NYT Thread Running...")
             for ticker in tickers:
-                print("NYT % done: " + str(tickers.index(ticker) + "/" + str(len(tickers))))
+                print("NYT % done: " + str(tickers.index(ticker)) + "/" + str(len(tickers)))
                 flag = True
                 page_num = 0
                 while flag:
@@ -140,7 +140,7 @@ class HistoricNews(News):
         def guardian():
             print("Guardian Thread Running...")
             for ticker in tickers:
-                print("Guardian % done: " + str(tickers.index(ticker) + "/" + str(len(tickers))))
+                print("Guardian % done: " + str(tickers.index(ticker)) + "/" + str(len(tickers)))
                 flag = True
                 page_num = 1
                 while flag:
