@@ -67,7 +67,7 @@ def main():
 def stock_price_workflow(quote_args, tickers):
     if quote_args != 'recalculate':
         AlphaVantage.download(tickers=tickers) # TODO: Find a way to quickly update stock data for the last day. (MEDUIM PRIORITY)
-    Stock.process(window=5)    # Shorter windows for short term, longer windows for long term.
+    Stock.process()    # Shorter windows for short term, longer windows for long term.
 
 
 def stock_news_workflow(news_args, tickers):
