@@ -43,6 +43,7 @@ class AlphaVantage(StockPrice):
 
         # Download New Data.
         invalid = []
+        last_ticker = ''
         for ticker in tickers:
             time.sleep(10)
             print("TICKER: " + ticker)
@@ -58,7 +59,13 @@ class AlphaVantage(StockPrice):
                         file.write(r.text)
                 except KeyError:
                     # Sleep for a minute and try again.
-                    if "alpha" in r.text.lower():
+                    print(r.text)
+                    if last_ticker == ticker:
+                        # this ticker keeps being a problem.
+                        invalid.append(ticker)
+                        flag = False
+                    elif "alpha" in r.text.lower():
+                        last_ticker = ticker
                         print('Sleeping for 90 seconds ' + str(ticker))
                         time.sleep(90)
                     else:
