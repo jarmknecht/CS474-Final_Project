@@ -1,10 +1,13 @@
 import json
 import os
+from json import JSONDecodeError
+
 import requests
 import shutil
 import time
 from abc import abstractmethod
 from pathlib import Path
+import urllib.parse
 from tqdm import tqdm
 
 from DataBot.config import CONFIG
@@ -39,20 +42,32 @@ class AlphaVantage(StockPrice):
         StockPrice.init()
 
         # Download New Data.
+        invalid = []
         for ticker in tickers:
+            time.sleep(10)
+            print("TICKER: " + ticker)
             # print('Downloading stock prices for {}'.format(ticker))
             flag = True
             while flag:
-                r = requests.get(AlphaVantage.URL % (AlphaVantage.HISTORICAL, ticker))
+                r = requests.get(AlphaVantage.URL % (AlphaVantage.HISTORICAL, urllib.parse.quote(ticker)))
                 try:
                     obj = json.loads(r.text)
                     val = obj["Time Series (Daily)"]
                     flag = False
+                    with open(os.path.join(StockPrice.DATA_PATH, ticker + '.json'), "w") as file:
+                        file.write(r.text)
                 except KeyError:
                     # Sleep for a minute and try again.
-                    print('Sleeping for 90 seconds' + str(ticker))
-                    print(r.text)
+                    if "alpha" in r.text.lower():
+                        print('Sleeping for 90 seconds ' + str(ticker))
+                        time.sleep(90)
+                    else:
+                        invalid.append(ticker)
+                        flag = False
+                except JSONDecodeError:
+                    print("JSON DECODE ERROR FOR -> " + str(ticker))
+                    with open("./error.html", "w") as f:
+                        f.write(r.text)
                     time.sleep(90)
 
-            with open(os.path.join(StockPrice.DATA_PATH, ticker + '.json'), "w") as file:
-                file.write(r.text)
+        print(invalid)

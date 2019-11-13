@@ -1,6 +1,6 @@
-"""
+
 # Uncomment and change paths to your computer to work on the command line.
-PATHS = ['/home/greensurfer/CS474-Final_Project', '/home/greensurfer/CS474-Final_Project/DataBot', '/Users/austinkolander/Code/school/CS474-Final_Project', '/home/greensurfer/CS474-Final_Project/DataBot/venv/lib/python3.5/site-packages']
+PATHS = ['/home/austin/Desktop/CS474-Final_Project', '/home/austin/Desktop/CS474-Final_Project/DataBot', '/home/austin/Desktop/CS474-Final_Project', '/home/austin/Desktop/CS474-Final_Project/DataBot/venv/lib/python3.5/site-packages']
 
 import os
 import sys
@@ -9,7 +9,7 @@ for path in PATHS:
 
 print(sys.path)
 print("PID: " + str(os.getpid()))
-"""
+
 
 import argparse
 import json
@@ -44,8 +44,6 @@ def main():
     tickers = []
     for key, value in ticker_data.items():
         tickers.append(value)
-
-    tickers = ["AAPL", "GOOG", "FB", "SNAP"]
 
     #if args.path is not None:
     #   DATA_DIR = args.path
