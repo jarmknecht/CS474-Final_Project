@@ -45,6 +45,8 @@ def main():
     for key, value in ticker_data.items():
         tickers.append(value)
 
+    tickers = ["AAPL", "GOOG", "FB", "SNAP"]
+
     #if args.path is not None:
     #   DATA_DIR = args.path
 
@@ -59,9 +61,13 @@ def main():
         social_downloader = Thread(target=stock_social_workflow(args.social, tickers), daemon=True)
         social_downloader.start()
 
-    stock_downloader.join()
-    news_downloader.join()
-    social_downloader.join()
+    if args.quotes is not None:
+        stock_downloader.join()
+
+    if args.news is not None:
+        news_downloader.join()
+    if args.social is not None:
+        social_downloader.join()
 
 
 def stock_price_workflow(quote_args, tickers):

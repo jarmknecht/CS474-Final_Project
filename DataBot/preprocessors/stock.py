@@ -174,7 +174,7 @@ class Stock:
                 an oscillator and is used to help identify trend lines.
             '''
 
-            stock_df['momentum'] = np.where(stock_df['close'] > 0, 1, -1)
+            stock_df['momentum'] = np.where(stock_df['close'].astype(float) > 0, 1, -1)
             stock_df['momentum_3day'] = stock_df.momentum.rolling(momentum).mean()
 
             # Write out to disk!
