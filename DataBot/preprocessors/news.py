@@ -89,6 +89,7 @@ class News:
 
                 if len(content) != 0:
                     path = Path(os.path.join(News.DATA_OUT_PATH, file.replace(".json", ""), str(date)))
+
                     if not path.is_dir():
                         os.mkdir(path)
 
