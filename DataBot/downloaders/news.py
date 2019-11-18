@@ -164,6 +164,9 @@ class HistoricNews(News):
                         elif obj["status"].lower() == "error" and "Content API does not support paging this far." in obj['message']:
                             # Went to deep, move on to next stock.
                             flag = False
+                        elif obj["status"].lower() == "error" and "Invalid search query syntax" in obj['message']:
+                            print("Ticker " + str(ticker) + " Term: " + str(query_ticker_term(ticker)))
+                            flag = False  # Move on!
                         else:
                             raise KeyError()
 

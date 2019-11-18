@@ -41,16 +41,18 @@ class News:
             fortune500s_n = json.loads(f.read())
 
         news_catalog = os.listdir(News.DATA_IN_PATH)
-        for file in news_catalog:
-            with open(os.path.join(News.DATA_IN_PATH, file), "r") as f:
+        print(news_catalog)
+        for myfile in news_catalog:
+            print(myfile)
+            with open(os.path.join(News.DATA_IN_PATH, myfile), "r") as f:
                 json_data = json.loads(f.read())
 
-            var = Path(os.path.join(News.DATA_OUT_PATH, file.replace(".json", "")))
+            var = Path(os.path.join(News.DATA_OUT_PATH, myfile.replace(".json", "")))
             if not var.is_dir():
-                os.mkdir(os.path.join(News.DATA_OUT_PATH, file.replace(".json", "")))
+                os.mkdir(os.path.join(News.DATA_OUT_PATH, myfile.replace(".json", "")))
 
             # Add check for articles from kaggle.
-            News.all_the_data(file.replace(".json", ""))
+            News.all_the_data(myfile.replace(".json", ""))
 
             loop = tqdm(total=int(json_data['totalResults']))
             for article_summary in json_data['articles']:
@@ -77,7 +79,7 @@ class News:
 
                 # Attempt to get more relevant news content.
                 content = []
-                ticker = file.replace(".json", "")
+                ticker = myfile.replace(".json", "")
                 if " " + ticker + " " in title or "(" + ticker + ")" in title or fortune500s_n[ticker] in title:
                     content.append(title)
 
@@ -88,13 +90,17 @@ class News:
                         content.append(sentence)
 
                 if len(content) != 0:
-                    path = Path(os.path.join(News.DATA_OUT_PATH, file.replace(".json", ""), str(date)))
+                    path = Path(os.path.join(News.DATA_OUT_PATH, myfile.replace(".json", ""), str(date)))
                     if not path.is_dir():
-                        os.mkdir(path)
+                        os.mkdir(str(path))
 
-                    file_path = Path(os.path.join(path, title.replace("/", "") + ".txt"))
+                    sanitize = "!@#$%^&*()_+:\"{}[]|\/?.,<>;:'=~`"
+                    for symbol in sanitize:
+                        title = title.replace(symbol, '')
+                    
+                    file_path = Path(os.path.join(str(path), title + ".txt"))
                     if not file_path.exists():
-                        with open(os.path.join(path, title.replace("/", "") + ".txt"), "w") as f:
+                        with open(os.path.join(str(path), title + ".txt"), "w") as f:
                             f.write(".".join(content))
 
                 loop.update(1)
@@ -139,12 +145,16 @@ class News:
                 if len(content) != 0:
                     path = Path(os.path.join(News.DATA_OUT_PATH, ticker, str(date)))
                     if not path.is_dir():
-                        os.mkdir(path)
+                        os.mkdir(str(path))
+
+                    sanitize = "!@#$%^&*()_+:\"{}[]|\/?.,<>;:'=~`"
+                    for symbol in sanitize:
+                        title = title.replace(symbol, '')
 
                     # Add to our old news data.
-                    file_path = Path(os.path.join(path, title.replace("/", "") + ".txt"))
+                    file_path = Path(os.path.join(str(path), title + ".txt"))
                     if not file_path.exists():
-                        with open(os.path.join(path, title.replace("/", "") + ".txt"), "w") as f:
+                        with open(os.path.join(str(path), title + ".txt"), "w") as f:
                             f.write(".".join(content))
 
 #print("Stating...")

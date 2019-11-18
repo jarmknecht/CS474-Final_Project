@@ -1,4 +1,4 @@
-"""
+
 # Uncomment and change paths to your computer to work on the command line.
 PATHS = ['/home/greensurfer/CS474-Final_Project', '/home/greensurfer/CS474-Final_Project/DataBot', '/Users/austinkolander/Code/school/CS474-Final_Project', '/home/greensurfer/CS474-Final_Project/DataBot/venv/lib/python3.5/site-packages']
 
@@ -9,7 +9,6 @@ for path in PATHS:
 
 print(sys.path)
 print("PID: " + str(os.getpid()))
-"""
 
 import argparse
 import json
@@ -58,10 +57,13 @@ def main():
     if args.social is not None:
         social_downloader = Thread(target=stock_social_workflow(args.social, tickers), daemon=True)
         social_downloader.start()
-
-    stock_downloader.join()
-    news_downloader.join()
-    social_downloader.join()
+    
+    if args.quotes is not None:
+        stock_downloader.join()
+    if args.news is not None:
+        news_downloader.join()
+    if args.social is not None:
+        social_downloader.join()
 
 
 def stock_price_workflow(quote_args, tickers):
@@ -72,7 +74,7 @@ def stock_price_workflow(quote_args, tickers):
 
 def stock_news_workflow(news_args, tickers):
     if news_args == 'all':
-        HistoricNews.download(tickers=tickers)  # May want to break this up into chuncks on systems with low memory.
+        #HistoricNews.download(tickers=tickers)  # May want to break this up into chuncks on systems with low memory.
         News.process()
     elif news_args == 'last-week':
         NewsAPIDotOrg.download(tickers=tickers)

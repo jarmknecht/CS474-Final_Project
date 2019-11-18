@@ -1,7 +1,7 @@
 from pathlib import Path
 import os
 
-DATA_DIR = "./data/"
+DATA_DIR = "/media/USB/dir/data/"
 
 CONFIG = {
   "all": {
