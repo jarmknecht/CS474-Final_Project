@@ -1,6 +1,6 @@
 
 # Uncomment and change paths to your computer to work on the command line.
-PATHS = ['/home/greensurfer/CS474-Final_Project', '/home/greensurfer/CS474-Final_Project/DataBot', '/Users/austinkolander/Code/school/CS474-Final_Project', '/home/greensurfer/CS474-Final_Project/DataBot/venv/lib/python3.5/site-packages']
+PATHS = ['/home/austin/Desktop/CS474-Final_Project', '/home/austin/Desktop/CS474-Final_Project/DataBot', '/home/austin/Desktop/CS474-Final_Project', '/home/austin/Desktop/CS474-Final_Project/DataBot/venv/lib/python3.5/site-packages']
 
 import os
 import sys
@@ -69,7 +69,7 @@ def main():
 def stock_price_workflow(quote_args, tickers):
     if quote_args != 'recalculate':
         AlphaVantage.download(tickers=tickers) # TODO: Find a way to quickly update stock data for the last day. (MEDUIM PRIORITY)
-    Stock.process(window=5)    # Shorter windows for short term, longer windows for long term.
+    Stock.process()    # Shorter windows for short term, longer windows for long term.
 
 
 def stock_news_workflow(news_args, tickers):

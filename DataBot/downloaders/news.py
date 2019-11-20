@@ -100,8 +100,8 @@ class HistoricNews(News):
 
     @staticmethod
     def download(tickers):
-        #News.init()
-        #NewsAPIDotOrg.download(tickers)
+        News.init()
+        NewsAPIDotOrg.download(tickers)
         news_articles = {}
 
         # NYT News Data, don't wait for GUARDIAN API timeouts..
