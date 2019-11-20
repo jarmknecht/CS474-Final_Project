@@ -1,0 +1,194 @@
+[
+  {
+    "name": "Walmart",
+    "symbol": "WMT"
+  },
+  {
+    "name": "Exxon Mobil",
+    "symbol": "XOM"
+  },
+  {
+    "name": "Snapchat",
+    "symbol": "SNAP"
+  },
+  {
+    "name": "Apple",
+    "symbol": "AAPL"
+  },
+  {
+    "name": "CVS Health",
+    "symbol": "CVS"
+  },
+  {
+    "name": "Chevron",
+    "symbol": "CVX"
+  },
+  {
+    "name": "Alphabet",
+    "symbol": "GOOG"
+  },
+  {
+    "name": "JPMorgan Chase",
+    "symbol": "JPM"
+  },
+  {
+    "name": "Bank of America",
+    "symbol": "BAC"
+  },
+  {
+    "name": "Microsoft",
+    "symbol": "MSFT"
+  },
+  {
+    "name": "Wells Fargo",
+    "symbol": "WFC"
+  },
+  {
+    "name": "Comcast",
+    "symbol": "CMCSA"
+  },
+  {
+    "name": "Anthem",
+    "symbol": "ANTM"
+  },
+  {
+    "name": "Dell Technologies",
+    "symbol": "DELL"
+  },
+  {
+    "name": "Johnson & Johnson",
+    "symbol": "JNJ"
+  },
+  {
+    "name": "IBM",
+    "symbol": "IBM"
+  },
+  {
+    "name": "United Parcel Service",
+    "symbol": "UPS"
+  },
+  {
+    "name": "Intel",
+    "symbol": "INTC"
+  },
+  {
+    "name": "FedEx",
+    "symbol": "FDX"
+  },
+  {
+    "name": "Walt Disney",
+    "symbol": "DIS"
+  },
+  {
+    "name": "Facebook",
+    "symbol": "FB"
+  },
+  {
+    "name": "Lockheed Martin",
+    "symbol": "LMT"
+  },
+  {
+    "name": "Goldman Sachs Group",
+    "symbol": "GS"
+  },
+  {
+    "name": "Morgan Stanley",
+    "symbol": "MS"
+  },
+  {
+    "name": "American Airlines Group",
+    "symbol": "AAL"
+  },
+  {
+    "name": "Delta Air Lines",
+    "symbol": "DAL"
+  },
+  {
+    "name": "American Express",
+    "symbol": "AXP"
+  },
+  {
+    "name": "Tyson Foods",
+    "symbol": "TSN"
+  },
+  {
+    "name": "Nike",
+    "symbol": "NKE"
+  },
+  {
+    "name": "General Dynamics",
+    "symbol": "GD"
+  },
+  {
+    "name": "3M",
+    "symbol": "MMM"
+  },
+  {
+    "name": "Raytheon",
+    "symbol": "RTN"
+  },
+  {
+    "name": "Kraft Heinz",
+    "symbol": "KHC"
+  },
+  {
+    "name": "Mondelez International",
+    "symbol": "MDLZ"
+  },
+  {
+    "name": "Dollar General",
+    "symbol": "DG"
+  },
+  {
+    "name": "Starbucks",
+    "symbol": "SBUX"
+  },
+  {
+    "name": "Southwest Airlines",
+    "symbol": "LUV"
+  },
+  {
+    "name": "Tesla",
+    "symbol": "TSLA"
+  },
+  {
+    "name": "Marriott International",
+    "symbol": "MAR"
+  },
+  {
+    "name": "Visa",
+    "symbol": "V"
+  },
+  {
+    "name": "Netflix",
+    "symbol": "NFLX"
+  },
+  {
+    "name": "General Mills",
+    "symbol": "GIS"
+  },
+  {
+    "name": "Nvidia",
+    "symbol": "NVDA"
+  },
+  {
+    "name": "Hershey",
+    "symbol": "HSY"
+  },
+  {
+    "name": "Wayfair",
+    "symbol": "W"
+  },
+  {
+    "name": "Ulta Beauty",
+    "symbol": "ULTA"
+  },
+  {
+    "name": "Intuit",
+    "symbol": "INTU"
+  },
+  {
+    "name": "Yum Brands",
+    "symbol": "YUM"
+  }
+]

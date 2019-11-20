@@ -1,4 +1,4 @@
-
+"""
 # Uncomment and change paths to your computer to work on the command line.
 PATHS = ['/home/austin/Desktop/CS474-Final_Project', '/home/austin/Desktop/CS474-Final_Project/DataBot', '/home/austin/Desktop/CS474-Final_Project', '/home/austin/Desktop/CS474-Final_Project/DataBot/venv/lib/python3.5/site-packages']
 
@@ -9,6 +9,7 @@ for path in PATHS:
 
 print(sys.path)
 print("PID: " + str(os.getpid()))
+"""
 
 import argparse
 import json
@@ -74,7 +75,7 @@ def stock_price_workflow(quote_args, tickers):
 
 def stock_news_workflow(news_args, tickers):
     if news_args == 'all':
-        #HistoricNews.download(tickers=tickers)  # May want to break this up into chuncks on systems with low memory.
+        HistoricNews.download(tickers=tickers)  # May want to break this up into chuncks on systems with low memory.
         News.process()
     elif news_args == 'last-week':
         NewsAPIDotOrg.download(tickers=tickers)

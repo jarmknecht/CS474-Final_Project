@@ -34,7 +34,7 @@ class News:
         #     os.mkdir(News.DATA_OUT_PATH)
 
     @staticmethod
-    def process():
+    def process(tickers=None):
         News.init()
 
         with open(os.path.join(CONFIG['all']['symbols'], 'fortune500s_n.json'), 'r') as f:
@@ -43,6 +43,10 @@ class News:
         news_catalog = os.listdir(News.DATA_IN_PATH)
         print(news_catalog)
         for myfile in news_catalog:
+            if tickers is not None and myfile.replace(".json", "") not in tickers:
+                # Skip processing news data for this stock.
+                continue
+
             print(myfile)
             with open(os.path.join(News.DATA_IN_PATH, myfile), "r") as f:
                 json_data = json.loads(f.read())
